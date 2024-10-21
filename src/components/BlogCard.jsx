@@ -7,9 +7,7 @@ function BlogCard(props) {
           src={props.image}
           alt={props.title}
         />
-      </a>
-
-
+      </a>g
       <div className="flex flex-col">
         <div className="flex">
           <span className="bg-green-200 rounded-full text-sm font-semibold text-green-600 mb-2 px-3 py-1">
@@ -17,9 +15,7 @@ function BlogCard(props) {
           </span>
         </div>
         <a href="#">
-          <h2 className="font-bold text-xl mb-2">
-            {props.title}
-          </h2>
+          <h2 className="font-bold text-xl mb-2">{props.title}</h2>
         </a>
         <p className="text-brown-400 text-sm mb-4 flex-grow">
           {props.description}
@@ -39,5 +35,4 @@ function BlogCard(props) {
   );
 }
 
-export default BlogCard
-
+export default BlogCard;
