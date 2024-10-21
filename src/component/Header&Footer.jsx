@@ -39,8 +39,8 @@ export function Footer() {
   const hoverIcon ="hover:scale-110 transition duration-300"
   return (
     <footer className='flex justify-center bg-brown-200 font-poppins'>
-      <div className='flex items-center justify-between w-5/6 py-10'>
-        <div className='flex justify-around w-1/6 items-center'>
+      <div className='flex flex-col lg:flex-row items-center justify-between w-5/6 py-10 gap-3'>
+        <div className='flex justify-around w-3/4 lg:w-1/6 items-center'>
           Get in touch
           <div className={styleIcon}>
             <a href='https://www.linkedin.com/in/arkorn-pattanavibul-b34266319/'><Linkedin className={hoverIcon}/></a>
@@ -59,4 +59,3 @@ export function Footer() {
     </footer>
   );
 }
-
