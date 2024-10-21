@@ -1,7 +1,7 @@
 import heroPic from "../assets/heropic.jpg";
 const HeroSection = () => {
   return (
-    <main className="flex flex-col lg:flex-row justify-center items-center py-4 px-8">
+    <main className="flex flex-col lg:flex-row justify-center items-center pt-4 px-8">
       <div className="flex flex-col items-center lg:items-end lg:w-1/3 mb-8 lg:mb-0 lg:pr-8 font-poppins">
         <h1 className="text-4xl lg:text-6xl font-semibold mb-4 text-brown-600 lg:text-end text-center">
           Stay <br className="hidden lg:block"></br>

@@ -9,7 +9,7 @@ export const blogPosts = [
     },
     {
       image: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/e739huvlalbfz9eynysc.jpg",
-      category: "Cat",
+      category: "General",
       title: "The Fascinating World of Cats: Why We Love Our Furry Friends",
       description: "Cats have captivated human hearts for thousands of years. Whether lounging in a sunny spot or playfully chasing a string, these furry companions bring warmth and joy to our lives.",
       author: "Thompson P.",
@@ -25,7 +25,7 @@ export const blogPosts = [
     },
     {
       image: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/e739huvlalbfz9eynysc.jpg",
-      category: "Cat",
+      category: "Inspiration",
       title: "The Science of the Cat's Purr: How It Benefits Cats and Humans Alike",
       description: "Discover the fascinating science behind the cat's purr, including its potential healing properties for both cats and humans. Learn how this unique sound is produced and its various functions in feline communication and well-being.",
       author: "Thompson P.",
@@ -41,7 +41,7 @@ export const blogPosts = [
     },
     {
       image: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/e739huvlalbfz9eynysc.jpg",
-      category: "Cat",
+      category: "Highlight",
       title: "Top 10 Health Tips to Keep Your Cat Happy and Healthy",
       description: "This guide offers essential tips on keeping your cat in peak health. Covering topics like proper nutrition, regular vet visits, grooming, and mental stimulation, it's a must-read for any cat owner looking to ensure their feline friend lives a long, happy life.",
       author: "Thompson P.",
