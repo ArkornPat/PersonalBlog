@@ -1,4 +1,4 @@
-import burgerSVG from "../assets/burger-menu-svgrepo-com.svg";
+import { AlignJustify } from 'lucide-react';
 
 function Navbar() {
   return (
@@ -25,7 +25,7 @@ function Navbar() {
         </a>
         </button>
       </div>
-      <button className="md:hidden"><img src={burgerSVG} alt="burger menu" /></button>
+      <button className="md:hidden"><AlignJustify/></button>
     </nav>
     </>
   );
