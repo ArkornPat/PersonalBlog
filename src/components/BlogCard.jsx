@@ -1,7 +1,7 @@
 function BlogCard(props) {
   return (
     <div className="flex flex-col gap-4 font-poppins">
-      <a href="#" className="relative h-[210px] md:h-[400px]">
+      <a href="/" className="relative h-[210px] md:h-[400px]">
         <img
           className="w-full h-full object-cover rounded-md"
           src={props.image}
@@ -14,7 +14,7 @@ function BlogCard(props) {
             {props.category}
           </span>
         </div>
-        <a href="#">
+        <a href="/">
           <h2 className="font-bold text-xl mb-2">{props.title}</h2>
         </a>
         <p className="text-brown-400 text-sm mb-4 flex-grow">
