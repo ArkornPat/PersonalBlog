@@ -1,4 +1,4 @@
-import {Navbar,Footer} from "./component/Navbar";
+import {Navbar,Footer} from "./component/Header&Footer";
 import HeroSection from "./component/HeroSection";
 function App() {
   return (<>
