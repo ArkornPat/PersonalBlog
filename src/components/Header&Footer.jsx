@@ -5,7 +5,7 @@ import { AlignJustify,Linkedin,Github,Mail } from 'lucide-react';
 export function Navbar() {
   return (
     <>
-    <nav className="flex items-center justify-between bg-brown-100 border-b border-brown-300 py-4 px-8 sticky top-0 font-poppins">
+    <nav className="flex items-center justify-between bg-brown-100 border-b border-brown-300 py-4 px-8 sticky top-0 font-poppins z-50">
       <a href="/" className="font-bold text-2xl hidden md:flex">
         Arkorn Pat<span className="text-green-600">.</span>
       </a>
