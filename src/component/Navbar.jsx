@@ -1,9 +1,11 @@
-import { AlignJustify } from 'lucide-react';
+import { AlignJustify,Linkedin,Github,Mail } from 'lucide-react';
 
-function Navbar() {
+
+
+export function Navbar() {
   return (
     <>
-    <nav className="flex items-center justify-between bg-brown-100 border-b border-brown-300 py-4 px-8 sticky top-0">
+    <nav className="flex items-center justify-between bg-brown-100 border-b border-brown-300 py-4 px-8 sticky top-0 font-poppins">
       <a href="/" className="font-bold text-2xl hidden md:flex">
         Arkorn Pat<span className="text-green-600">.</span>
       </a>
@@ -12,7 +14,7 @@ function Navbar() {
       </a>
       <div className="md:flex gap-2 hidden">
         <button>
-        <a href="/" className="px-9 py-2 rounded-full border">
+        <a href="/" className="px-9 py-2 rounded-full border border-brown-400">
           Log in
         </a>
         </button>
@@ -31,4 +33,30 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+
+export function Footer() {
+  const styleIcon = "flex items-center justify-center w-9 h-9 rounded-full border border-brown-500"
+  const hoverIcon ="hover:scale-110 transition duration-300"
+  return (
+    <footer className='flex justify-center bg-brown-200 font-poppins'>
+      <div className='flex items-center justify-between w-5/6 py-10'>
+        <div className='flex justify-around w-1/6 items-center'>
+          Get in touch
+          <div className={styleIcon}>
+            <a href='https://www.linkedin.com/in/arkorn-pattanavibul-b34266319/'><Linkedin className={hoverIcon}/></a>
+          </div>
+          <div className={styleIcon}>
+            <a href='https://github.com/ArkornPat'><Github className={hoverIcon}/></a>
+          </div>
+          <div className={styleIcon}>
+            <a><Mail className={hoverIcon}/></a>
+          </div>
+        </div>
+        <div>
+          <a href='/' className='underline underline-offset-1'>Home page</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
