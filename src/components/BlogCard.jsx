@@ -1,7 +1,8 @@
+import HeroImg from "../assets/heropic.jpg"
 function BlogCard(props) {
   return (
     <div className="flex flex-col gap-4 font-poppins">
-      <a href="/" className="relative h-[210px] md:h-[400px]">
+      <a href="/" className="h-[210px] md:h-[400px]">
         <img
           className="w-full h-full object-cover rounded-md"
           src={props.image}
@@ -23,7 +24,7 @@ function BlogCard(props) {
         <div className="flex items-center text-sm">
           <img
             className="w-8 h-8 rounded-full mr-2"
-            src={props.image}
+            src={HeroImg}
             alt={props.author}
           />
           <span>{props.author}</span>
