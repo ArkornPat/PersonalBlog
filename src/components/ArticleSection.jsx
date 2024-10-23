@@ -12,17 +12,11 @@ import { blogPosts } from "../data/data";
 import { useState } from "react";
 
 export default function ArticleSection() {
-  const [cate, setCate] = useState("");
+  const [cate, setCate] = useState("Highlight");
 
-  const btn =
-    "px-5 py-3 hover:bg-brown-300 active:bg-brown-300 focus:bg-brown-300 rounded-sm mx-[4px]";
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
 
-  const filteredPosts = cate
-    ? blogPosts.filter(
-        (post) => post.category?.toLowerCase() === cate?.toLowerCase()
-      )
-    : blogPosts;
+  const filteredPosts = cate === "Highlight" ? blogPosts : blogPosts.filter((post) => post.category?.toLowerCase() === cate?.toLowerCase());
 
   return (
     <div className="font-poppins flex flex-col py-4 px-8">
@@ -35,7 +29,8 @@ export default function ArticleSection() {
             <button
               key={category}
               onClick={() => setCate(category)}
-              className={btn}
+              className={`px-5 py-3 rounded-sm mx-[4px]  ${category === cate ? "bg-brown-300" : "hover:bg-brown-300"}`}
+              disabled={category === cate}
             >
               {category}
             </button>
@@ -53,16 +48,17 @@ export default function ArticleSection() {
           </button>
         </div>
 
-        <Select onValueChange={setCate}>
+        <Select value={cate} onValueChange={(value) => setCate(value)}>
           <SelectTrigger className="flex lg:hidden">
             <SelectValue placeholder="Select a Topic" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="Highlight">Highlight</SelectItem>
-              <SelectItem value="Cat">Cat</SelectItem>
-              <SelectItem value="Inspiration">Inspiration</SelectItem>
-              <SelectItem value="General">General</SelectItem>
+              {categories.map((category) => (
+                <SelectItem key={category} value={category}>
+                  {category}
+                </SelectItem>
+              ))}
             </SelectGroup>
           </SelectContent>
         </Select>
