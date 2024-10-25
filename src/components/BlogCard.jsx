@@ -29,7 +29,7 @@ function BlogCard(props) {
           />
           <span>{props.author}</span>
           <span className="mx-2 text-brown-200">|</span>
-          <span>{props.date}</span>
+          <span>{new Date(props.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
         </div>
       </div>
     </div>
