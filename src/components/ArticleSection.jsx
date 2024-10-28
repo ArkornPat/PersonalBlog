@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import axios from "axios";
 import {
   Select,
   SelectContent,
@@ -8,15 +9,40 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import BlogCard from "./BlogCard";
-import { blogPosts } from "../data/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ArticleSection() {
-  const [cate, setCate] = useState("Highlight");
-
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
+  const [cate, setCate] = useState("Highlight");
+  const [dataPosts, setDataPosts] = useState([]);
+  const [limit , setLimit] = useState(6)
+  const [isLoading, setIsLoading] = useState(false);
 
-  const filteredPosts = cate === "Highlight" ? blogPosts : blogPosts.filter((post) => post.category?.toLowerCase() === cate?.toLowerCase());
+  useEffect(() => {
+    setIsLoading(true)
+    fetchData();
+  }, [cate,limit]);
+
+  async function fetchData() {
+    try {
+      const url = cate === "Highlight" 
+      ? `https://blog-post-project-api.vercel.app/posts?limit=${limit}` 
+      : `https://blog-post-project-api.vercel.app/posts?category=${cate}&limit=${limit}`;
+      const response = await axios.get(url);
+      setDataPosts(response.data.posts);
+      setIsLoading(false)
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false)
+    }
+  }
+  
+  function viewMore(){
+    if(limit < 30){
+      let newlimit = limit + 6
+      setLimit(newlimit)
+    }
+  }
 
   return (
     <div className="font-poppins flex flex-col py-4 px-8">
@@ -29,7 +55,9 @@ export default function ArticleSection() {
             <button
               key={category}
               onClick={() => setCate(category)}
-              className={`px-5 py-3 rounded-sm mx-[4px]  ${category === cate ? "bg-brown-300" : "hover:bg-brown-300"}`}
+              className={`px-5 py-3 rounded-sm mx-[4px] ${
+                category === cate ? "bg-brown-300" : "hover:bg-brown-300"
+              }`}
               disabled={category === cate}
             >
               {category}
@@ -65,7 +93,7 @@ export default function ArticleSection() {
       </div>
 
       <article className="grid grid-cols-1 md:grid-cols-2 gap-10 py-4">
-        {filteredPosts.map((post, index) => (
+        {dataPosts.map((post, index) => (
           <BlogCard
             key={index}
             image={post.image}
@@ -77,6 +105,7 @@ export default function ArticleSection() {
           />
         ))}
       </article>
+      <button onClick={viewMore} className="font-poppins text-2xl hover:text-muted-foreground font-medium underline items-center">{isLoading ? "Loading..." : "View more"}</button>
     </div>
   );
 }
