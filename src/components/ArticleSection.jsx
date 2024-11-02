@@ -15,37 +15,35 @@ export default function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
   const [cate, setCate] = useState("Highlight");
   const [dataPosts, setDataPosts] = useState([]);
-  const [limit , setLimit] = useState(6)
+  const [limit, setLimit] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
+  // const [keyword, setKeyword] = useState([]);
 
   useEffect(() => {
-    setIsLoading(true)
-    fetchData();
-  }, [cate,limit]);
-
-  async function fetchData() {
-    try {
-      const url = cate === "Highlight" 
-      ? `https://blog-post-project-api.vercel.app/posts?limit=${limit}` 
-      : `https://blog-post-project-api.vercel.app/posts?category=${cate}&limit=${limit}`;
-      const response = await axios.get(url);
-      setDataPosts(response.data.posts);
-      setIsLoading(false)
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false)
+    setIsLoading(true);
+    async function fetchData() {
+      try {
+        const response = await axios.get(`https://blog-post-project-api.vercel.app/posts?limit=${limit}&${cate !== "Highlight" ? `&category=${cate}` : ""}`);
+        setDataPosts(response.data.posts);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
     }
-  }
-  
-  function viewMore(){
-    if(limit < 30){
-      let newlimit = limit + 6
-      setLimit(newlimit)
+    fetchData();
+  }, [cate ,limit]);
+
+
+  function viewMore() {
+    if (limit < 30) {
+      let newlimit = limit + 6;
+      setLimit(newlimit);
     }
   }
 
   return (
-    <div className="font-poppins flex flex-col py-4 px-8">
+    <div className="font-poppins flex flex-col py-4 px-8 lg:px-20">
       <h3 className="text-2xl font-semibold text-brown-600 mb-4">
         Latest articles
       </h3>
@@ -100,12 +98,29 @@ export default function ArticleSection() {
             category={post.category}
             title={post.title}
             description={post.description}
-            author={post.author}
+            author={post?.author}
             date={post.date}
+            id={post.id}
           />
         ))}
       </article>
-      <button onClick={viewMore} className="font-poppins text-2xl hover:text-muted-foreground font-medium underline items-center">{isLoading ? "Loading..." : "View more"}</button>
+      <button
+        onClick={viewMore}
+        className="font-poppins text-2xl hover:text-muted-foreground font-medium underline items-center"
+      >
+        {isLoading ? <Spin /> : "View more"}
+      </button>
+    </div>
+  );
+}
+
+export function Spin() {
+  return (
+    <div className="flex w-full items-center justify-center">
+      <div className="flex flex-col items-center space-y-4">
+        <div className="animate-spin rounded-full border-4 border-gray-300 border-t-gray-900 h-12 w-12" />
+        <p className="text-gray-500 dark:text-gray-400">Loading...</p>
+      </div>
     </div>
   );
 }
