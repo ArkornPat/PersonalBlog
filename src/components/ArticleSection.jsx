@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import BlogCard from "./BlogCard";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
@@ -17,13 +18,20 @@ export default function ArticleSection() {
   const [dataPosts, setDataPosts] = useState([]);
   const [limit, setLimit] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
-  // const [keyword, setKeyword] = useState([]);
+  const [keyword, setKeyword] = useState("");
+  const [dataKeyword, setDataKeyWord] = useState([]); 
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     setIsLoading(true);
     async function fetchData() {
       try {
-        const response = await axios.get(`https://blog-post-project-api.vercel.app/posts?limit=${limit}&${cate !== "Highlight" ? `&category=${cate}` : ""}`);
+        const response = await axios.get(
+          `https://blog-post-project-api.vercel.app/posts?limit=${limit}&${
+            cate !== "Highlight" ? `&category=${cate}` : ""
+          }`
+        );
         setDataPosts(response.data.posts);
         setIsLoading(false);
       } catch (error) {
@@ -32,8 +40,24 @@ export default function ArticleSection() {
       }
     }
     fetchData();
-  }, [cate ,limit]);
+  }, [cate, limit]);
 
+  useEffect(() => {
+    setIsLoading(true);
+    async function fetchDataKeyWord() {
+      try {
+        const response = await axios.get(
+          `https://blog-post-project-api.vercel.app/posts?keyword=${keyword}`
+        );
+        setDataKeyWord(response.data.posts);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    }
+    fetchDataKeyWord();
+  }, [keyword]);
 
   function viewMore() {
     if (limit < 30) {
@@ -68,10 +92,24 @@ export default function ArticleSection() {
             type="text"
             placeholder="Search"
             className="border-0 outline-none bg-transparent"
+            onChange={(e) => setKeyword(e.target.value)}
           />
-          <button>
+          <span>
             <Search />
-          </button>
+          </span>
+          {keyword && dataKeyword.length > 0 && (
+            <div className="absolute z-10 w-[360px] mt-96 bg-background rounded-sm shadow-lg p-1">
+              {dataKeyword.map((keyword, index) => (
+                <button
+                  key={index}
+                  className="text-start px-4 py-2 block w-[360px] text-sm text-foreground hover:bg-brown-300  hover:rounded-sm cursor-pointer"
+                  onClick={() => navigate(`/post/${keyword.id}`)}
+                >
+                  {keyword.title}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <Select value={cate} onValueChange={(value) => setCate(value)}>
