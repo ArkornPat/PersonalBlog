@@ -67,7 +67,7 @@ export default function ViewPost() {
             </div>
           </article>
           {/* Bio */}
-          <div className="block lg:hidden">
+          <div className="block xl:hidden">
             <Bio dataPost={dataPost} />
           </div>
           {/* like&share */}
