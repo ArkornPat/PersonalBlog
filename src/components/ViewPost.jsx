@@ -15,6 +15,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Link } from "react-router-dom";
 
 export default function ViewPost() {
   const [dataPost, setDataPost] = useState([]);
@@ -83,14 +84,14 @@ export default function ViewPost() {
                   <AlertDialogTitle className="text-3xl font-semibold pb-2 text-center">
                     Create an account to continue
                   </AlertDialogTitle>
-                  <button className="rounded-full text-white bg-foreground hover:bg-muted-foreground transition-colors py-4 text-lg w-52">
+                  <Link to="/register" className="rounded-full text-white bg-foreground hover:bg-muted-foreground transition-colors py-4 text-lg w-52 text-center">
                     Create account
-                  </button>
+                  </Link>
                   <AlertDialogDescription className="flex flex-row gap-1 justify-center font-medium text-center pt-2">
                     Already have an account?
-                    <a className="text-foreground hover:text-muted-foreground transition-colors underline font-semibold">
+                    <Link to="/login" className="text-foreground hover:text-muted-foreground transition-colors underline font-semibold">
                       Log in
-                    </a>
+                    </Link>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -142,14 +143,14 @@ export default function ViewPost() {
                 <AlertDialogTitle className="text-3xl font-semibold pb-2 text-center">
                   Create an account to continue
                 </AlertDialogTitle>
-                <button className="rounded-full text-white bg-foreground hover:bg-muted-foreground transition-colors py-4 text-lg w-52">
+                <Link to="/register" className="rounded-full text-white bg-foreground hover:bg-muted-foreground transition-colors py-4 text-lg w-52 text-center">
                   Create account
-                </button>
+                </Link>
                 <AlertDialogDescription className="flex flex-row gap-1 justify-center font-medium text-center pt-2">
                   Already have an account?
-                  <a className="text-foreground hover:text-muted-foreground transition-colors underline font-semibold">
+                  <Link to="/login" className="text-foreground hover:text-muted-foreground transition-colors underline font-semibold">
                     Log in
-                  </a>
+                  </Link>
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>

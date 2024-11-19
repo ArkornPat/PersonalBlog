@@ -4,7 +4,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"; 
+} from "@/components/ui/dropdown-menu";
+
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,17 +22,17 @@ export function Navbar() {
       </a>
       <div className="md:flex gap-2 hidden">
         <button>
-        <a href="/" className="px-9 py-2 rounded-full border border-brown-400 font-medium">
+        <Link to="/login" className="px-9 py-2 rounded-full border border-brown-400 font-medium">
           Log in
-        </a>
+        </Link>
         </button>
         <button>
-        <a
-          href="/"
+        <Link
+          to="/register"
           className="px-9 py-2 bg-brown-600 text-white rounded-full hover:bg-brown-500 font-medium"
         >
           Sign up
-        </a>
+        </Link>
         </button>
       </div>
       <DropdownMenu>
@@ -38,18 +40,18 @@ export function Navbar() {
           <AlignJustify />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="md:hidden w-screen rounded-none mt-4 flex flex-col gap-6 px-6">
-          <a
-            href="/"
+          <Link
+            to="/login"
             className="px-9 py-2 rounded-full border border-brown-400 text-center font-medium"
           >
             Log in
-          </a>
-          <a
-            href="/"
+          </Link>
+          <Link
+            to="/register"
             className="px-9 py-2 bg-brown-600 text-white rounded-full hover:bg-brown-500 text-center font-medium"
           >
             Sign up
-          </a>
+          </Link>
         </DropdownMenuContent>
       </DropdownMenu>
     </nav>
