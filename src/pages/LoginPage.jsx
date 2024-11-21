@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
+import { Navbar, Footer } from "@/components/Header&Footer";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Navbar/>
       <main className="flex justify-center items-center p-4 my-4 flex-grow">
         <div className="w-full max-w-2xl bg-[#EFEEEB] rounded-sm shadow-md px-3 sm:px-20 py-14">
           <h2 className="text-4xl font-semibold text-center mb-6 text-foreground">
@@ -137,6 +139,7 @@ export default function LoginPage() {
           </p>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }
