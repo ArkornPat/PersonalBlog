@@ -5,7 +5,16 @@ import { Navbar, Footer } from "./components/Header&Footer";
 import ViewPostPage from "./pages/ViewPostPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-
+// import AdminArticleManagementPage from "./pages/admin/AdminArticlePage";
+// import AdminCategoryManagementPage from "./pages/admin/AdminCategoryPage";
+// import AdminCreateArticlePage from "./pages/admin/AdminCreateArticle";
+// import AdminCreateCategoryPage from "./pages/admin/AdminCreateCategoryPage";
+// import AdminEditArticlePage from "./pages/admin/AdminEditArticlePage";
+// import AdminEditCategoryPage from "./pages/admin/AdminEditCategoryPage";
+// import AdminLoginPage from "./pages/admin/AdminLoginPage";
+// import AdminNotificationPage from "./pages/admin/AdminNotificationPage";
+// import AdminProfilePage from "./pages/admin/AdminProfilePage";
+// import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
 function App() {
   return (
     <>

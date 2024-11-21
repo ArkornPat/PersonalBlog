@@ -97,8 +97,9 @@ export default function ArticleSection() {
           <span>
             <Search />
           </span>
+          {/* Dropdown */}
           {keyword && dataKeyword.length > 0 && (
-            <div className="absolute z-10 w-[360px] mt-96 bg-background rounded-sm shadow-lg p-1">
+            <div className="absolute z-10 w-[350px] mt-96 bg-background rounded-sm shadow-lg p-1 right-24">
               {dataKeyword.map((keyword, index) => (
                 <button
                   key={index}

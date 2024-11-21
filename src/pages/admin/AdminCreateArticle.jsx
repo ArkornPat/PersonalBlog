@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/select";
 import { AdminSidebar } from "@/components/AdminWebSection";
 import { Textarea } from "@/components/ui/textarea";
-import { useAuth } from "@/contexts/authentication";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +17,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
 export default function AdminCreateArticlePage() {
-  const { state } = useAuth();
   const navigate = useNavigate();
   const [post, setPost] = useState({
     image: "",
@@ -217,7 +215,6 @@ export default function AdminCreateArticlePage() {
               <Input
                 id="author"
                 name="author"
-                value={state.user.name}
                 className="mt-1 max-w-lg"
                 disabled
               />

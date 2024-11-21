@@ -14,7 +14,6 @@ import {
 import { AdminSidebar } from "@/components/AdminWebSection";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios"; // Make sure axios is installed
-import { useAuth } from "@/contexts/authentication";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -28,7 +27,6 @@ import {
 
 //this component is not finished yet
 export default function AdminEditArticlePage() {
-  const { state } = useAuth();
   const navigate = useNavigate();
   const { postId } = useParams(); // Get postId from the URL
   const [post, setPost] = useState({
@@ -293,7 +291,6 @@ export default function AdminEditArticlePage() {
               <Input
                 id="author"
                 name="author"
-                value={state.user.name}
                 className="mt-1 max-w-lg"
                 disabled
               />
